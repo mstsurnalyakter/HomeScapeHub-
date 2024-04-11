@@ -10,21 +10,21 @@ const Login = () => {
 
   const [toggle,setToggle] =  useState(false)
 
-
   return (
     <div className="flex items-center justify-center">
-      <div className="h-[700px] relative grid grid-cols-2 shadow-2xl bg-base-100 w-4/5 rounded-xl">
-        <div className="bg-center relative bg-cover bg-no-repeat rounded-l-xl object-cover bg-[url(/register.jpg)]">
-          <h2 className="absolute bottom-16 left-28 text-[#f8f6f4] font-bold text-4xl">
+      <div className="min-h-[700px] relative grid grid-cols-1 md:grid-cols-2 shadow-2xl bg-base-100 w-4/5 rounded-xl">
+        <div className="bg-center min-h-[400px] lg:min-h-[700px] bg-cover bg-no-repeat rounded-l-xl object-cover bg-[url(/register.jpg)]">
+          <h2 className="mt-3 md:mt-20 text-center font-bold text-4xl">
             Welcome to <br />
             HomeScapeHub
           </h2>
         </div>
         <div className="">
-
           <div className="shrink-0 w-full ">
             <form className="card-body">
-              <h3 className="text-black text-2xl font-medium">Login into your account</h3>
+              <h3 className="text-black text-2xl font-medium">
+                Login into your account
+              </h3>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -59,6 +59,13 @@ const Login = () => {
                 </button>
               </div>
             </form>
+            <p className="mb-6 -mt-3 ml-8">
+              <span>Don&apos;t Have An Account ? Please</span>
+              <Link className="underline text-[#0073e1]" to={"/register"}>
+                {" "}
+                Register Here!
+              </Link>
+            </p>
             <div className="divider px-6">OR</div>
 
             <div className="card-body space-y-4">
@@ -74,19 +81,13 @@ const Login = () => {
                 <FaGithub className="text-[bg-[#77228C]]" />
                 Login with GitHub
               </button>
-              <p className="">
-                <span>Don&apos;t Have An Account ?</span>
-                <Link className="underline text-[#0073e1]" to={"/register"}>
-                  {" "}
-                  Register here!
-                </Link>
-              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
+
 }
 
 Login.propTypes = {}
