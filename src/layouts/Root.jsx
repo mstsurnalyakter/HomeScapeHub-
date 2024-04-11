@@ -5,9 +5,9 @@ import { Outlet } from "react-router-dom";
 
 const Root = () => {
   return (
-    <div>
+    <div className="font-poppins">
       <NavBar />
-      <div className="mx-auto max-w-7xl px-1 mt-10 mb-10 min-h-[calc(100vh-366px)]">
+      <div className="mx-auto max-w-7xl px-1 mt-10 mb-10 min-h-[calc(100vh-540px)]">
         <Outlet />
       </div>
       <Footer />
