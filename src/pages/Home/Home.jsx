@@ -1,5 +1,6 @@
 import Banner from "../../components/Banner/Banner";
 import BestDealsForSale from "../../components/BestDealsForSale/BestDealsForSale";
+import ContactUs from "../../components/ContactUs/ContactUs";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Testimonials from "../../components/Testimonials/Testimonials";
 
@@ -15,6 +16,7 @@ const Home = () => {
 
         <BestDealsForSale/>
         <Testimonials/>
+        <ContactUs/>
 
       </div>
     </div>
