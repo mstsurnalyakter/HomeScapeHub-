@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "estate_title": "Modern Condo in Downtown SF",
+    "estate_title": "Modern Home in Downtown SF",
     "segment_name": "Residential",
-    "description": "Beautiful modern condo located in the heart of downtown San Francisco. Offers breathtaking views of the city skyline. Filled with natural light. Deck off dining room and bedrooms. New floors are throughout the main living areas and new carpets in the bedrooms. The handsome updated kitchen has an eat-in area and window balcony ..",
+    "description": "Beautiful modern Home located in the heart of downtown San Francisco. Offers breathtaking views of the city skyline. Filled with natural light. Deck off dining room and bedrooms. New floors are throughout the main living areas and new carpets in the bedrooms. The handsome updated kitchen has an eat-in area and window balcony ..",
     "price": "$1,500,000",
     "status": "sale",
     "area": "1500 sq ft",
-    "location": "San Francisco, CA",
-    "facilities": ["balcony", "fitness center", "parking garage"],
+    "location": "San Francisco, CA 99932",
+    "facilities": ["swimming pool","garden",  "updated kitchen"],
     "image": [
         "https://i.ibb.co/njPcx9Z/sf1.webp",
         "https://i.ibb.co/CJ1g03n/sf2.webp",
@@ -26,7 +26,7 @@
     "price": "$10,000,000",
     "status": "sale",
     "area": "8000 sq ft",
-    "location": "San Francisco, CA",
+    "location": "San Francisco, CA 23678",
     "facilities": ["swimming pool", "home theater", "wine cellar"],
     "image": [
         "https://i.ibb.co/VNQwPRf/pacific-heights1.webp",
@@ -45,7 +45,7 @@
     "price": "$2,200,000",
     "status": "sale",
     "area": "2500 sq ft",
-    "location": "San Francisco, CA",
+    "location": "San Francisco, CA 45678",
     "facilities": ["garden", "fireplace", "updated kitchen"],
     "image": [
         "https://i.ibb.co/BwsxFBd/haight-ashbury1.webp",
@@ -58,14 +58,14 @@
   },
   {
     "id": 4,
-    "estate_title": "Contemporary Loft in SoMa",
-    "segment_name": "Residential",
-    "description": "Sleek and stylish loft located in the vibrant SoMa (South of Market) neighborhood. Features open floor plan and industrial-chic design.",
+    "estate_title": "Luxury House in Greenville",
+    "segment_name": "Luxury",
+    "description": "This property is mostly wooded and sits high on a hilltop overlooking the Mohawk River Valley. Located right in the heart of Upstate NYs Amish farm Country, this land is certified organic making it extremely rare! Good road frontage on a paved county road with utilities make it an amazing setting for your dream country getaway! If you like views, you must see this property!",
     "price": "$900,000",
     "status": "sale",
     "area": "1200 sq ft",
-    "location": "San Francisco, CA",
-    "facilities": ["exposed brick", "high ceilings", "rooftop deck"],
+    "location": "San Francisco, CA 23465",
+    "facilities": ["garden",  "updated kitchen", "wine cellar"],
     "image": [
         "https://i.ibb.co/nRS7jyS/soMa1.webp",
         "https://i.ibb.co/njB71p2/soMa2.webp",
@@ -83,8 +83,8 @@
     "price": "$6,500,000",
     "status": "sale",
     "area": "5000 sq ft",
-    "location": "San Francisco, CA",
-    "facilities": ["private elevator", "wrap-around balcony", "spa"],
+    "location": "San Francisco, CA 12345",
+    "facilities": ["garden",  "updated kitchen","fireplace"],
     "image": [
         "https://i.ibb.co/KNtt49v/bay1.webp",
         "https://i.ibb.co/cCXNmqv/bay2.webp",
@@ -102,7 +102,7 @@
     "price": "$1,300,000",
     "status": "sale",
     "area": "1800 sq ft",
-    "location": "San Francisco, CA",
+    "location": "San Francisco, CA 58933",
     "facilities": ["private patio", "attached garage", "smart home features"],
     "image": [
         "https://i.ibb.co/Pc6G4RD/district1.webp",
@@ -115,13 +115,13 @@
   },
   {
     "id": 7,
-    "estate_title": "Family-Friendly Home in Noe Valley",
+    "estate_title": "Family House In Hudson",
     "segment_name": "Residential",
-    "description": "755-757 Elizabeth Street has been cherished by the same family for nearly a century. Situated on a spacious flat lot in the heart of Noe Valley, these tastefully updated duplex units blend timeless elegance with modern convenience. Upon entering the upper unit, you're greeted by a welcoming foyer leading to a sunlit living room adorned with a fireplace, perfect for unwinding or entertaining. Original hardwood floors and vintage plaster walls add character, while abundant natural light and high ceilings create an airy ambiance. 3 generously sized bedrooms offer ample storage. The upper unit boasts a chef's eat-in kitchen featuring granite countertops and stainless steel appliances. Adjacent to the kitchen, an office area or laundry room overlooks the expansive backyarda tranquil oasis for gatherings and relaxation. The lower unit mirrors the elegance of the upper, boasting three bedrooms and a well-appointed bathroom. The updated eat-in kitchen offers sleek quartz countertops and stainless steel appliances, while the laundry area adds convenience. Conveniently located near Douglass Park and The 24th Street corridor: dining, shopping, cafes, and so much more. EZ access to Silicon Valley and downtown, this duplex residence offers comfort, convenience, and endless possibilities.",
+    "description": "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood. This home features hardwood floors throughout, brand new bathrooms, newer EIK, modern front-load washer/dryer, full dining room, large living area, 3 spacious bedrooms and plenty of storage.Master bedroom includes both a standard closet and custom closet wall unit. Large windows face many directions for tons of natural light.",
     "price": "$2,800,000",
     "status": "sale",
     "area": "3000 sq ft",
-    "location": "San Francisco, CA",
+    "location": "San Francisco, CA 35723",
     "facilities": ["backyard garden", "chef's kitchen", "media room"],
     "image": [
         "https://i.ibb.co/HCzKj7B/valley1.webp",
@@ -134,15 +134,21 @@
   },
   {
     "id": 8,
-    "estate_title": "Luxury Condo in Russian Hill",
+    "estate_title": "SalesHousesFamily House In Hudson",
     "segment_name": "Luxury",
-    "description": "Elegant condo located in the prestigious Russian Hill neighborhood. Offers luxury living with panoramic city views.",
+    "description": "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood. This home features hardwood floors throughout, brand new bathrooms, newer EIK, modern front-load washer/dryer, full dining room, large living area, 3 spacious bedrooms and plenty of storage.Master bedroom includes both a standard closet and custom closet wall unit. Large windows face many directions for tons of natural light..",
     "price": "$4,000,000",
     "status": "sale",
     "area": "2200 sq ft",
-    "location": "San Francisco, CA",
-    "facilities": ["concierge service", "private terrace", "fitness center"],
-    "image": "https://www.movoto.com/images/default-property.jpg",
+    "location": "1244 E Street, Jersey City, Bayonne",
+    "facilities": ["garden",  "updated kitchen","swimming pool"],
+    "image":[
+      "https://i.ibb.co/7yQVHVG/villa1.webp",
+      "https://i.ibb.co/JtMmgkS/villa2.webp",
+      "https://i.ibb.co/0j684PS/villa3.webp",
+      "https://i.ibb.co/RBZd25P/villa4.webp",
+      "https://i.ibb.co/DQrbQVs/villa5.webp"
+    ],
     "view_property_button": "property-details?id=8"
   },
   {
@@ -153,7 +159,7 @@
     "price": "$1,700,000",
     "status": "sale",
     "area": "2000 sq ft",
-    "location": "San Francisco, CA",
+    "location": "San Francisco, CA 34678",
     "facilities": ["rooftop pool", "24/7 security", "concierge"],
     "image": [
         "https://i.ibb.co/nC0YLRh/financial1.webp",
