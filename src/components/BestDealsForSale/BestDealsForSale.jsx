@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import SaleAndRentCard from "../SaleAndRentCard/SaleAndRentCard";
 import { AuthContext } from "../../providers/FirebaseProvider";
 import { Button } from "@material-tailwind/react";
+import Spinner from "../Spinner/Spinner";
 
 
 const BestDealsForSale = () => {
@@ -19,6 +20,12 @@ const BestDealsForSale = () => {
           find your dream home or investment opportunity.
         </p>
       </div>
+
+      {dataLoading && (
+        <div className="mx-auto w-14 my-7">
+          <Spinner />
+        </div>
+      )}
 
       <div className="grid grid-cols-1   md:grid-cols-2 lg:grid-cols-3 gap-6">
         {data.length &&
