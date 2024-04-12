@@ -19,13 +19,14 @@ import {
   InboxIcon,
   PowerIcon,
 } from "@heroicons/react/24/solid";
+import Testimonials from "../Testimonials/Testimonials";
 
 
 export const SideBarCard = () =>{
   return (
     <div>
       <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
-        <div className="flex border flex-col space-y-3 justify-center w-full p-6 shadow-md rounded-xl sm:px-12 ">
+        {/* <div className="flex border flex-col space-y-3 justify-center w-full p-6 shadow-md rounded-xl sm:px-12 ">
           <img
             src="./my-image.png"
             alt=""
@@ -41,7 +42,9 @@ export const SideBarCard = () =>{
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
+        {/* <h2>Testimonials</h2>
+        <Testimonials/> */}
 
         <List>
           <ListItem>
