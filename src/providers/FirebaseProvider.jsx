@@ -1,13 +1,18 @@
 import  { createContext } from 'react'
 import PropTypes from "prop-types";
+import useData from '../hooks/useData';
 
 
 export const AuthContext = createContext(null)
 
 const FirebaseProvider = ({children}) => {
+
+  const {data,dataLoading} = useData();
+
     const authInfo = {
-        name:"surnaly akter"
-    }
+      data,
+      dataLoading,
+    };
   return (
     <AuthContext.Provider value={authInfo}>
       {
