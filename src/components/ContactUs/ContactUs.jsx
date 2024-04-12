@@ -1,12 +1,12 @@
 
 const ContactUs = () => {
   return (
-    <div className="shadow-lg border rounded-l-xl px-6 items-center">
+    <div className="shadow-lg border rounded-l-xl px-6 items-center min-h-[500px] ">
       <h3 className="w-2/3 mx-auto text-center mt-10 font-bold text-xl">
         Contact us today if you’d like to know more about how we help buy, sell
         or rent your home
       </h3>
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-[400px]  items-center gap-6 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2  items-center gap-6 ">
         <div>
           <img src="/home-finder.png" alt="" />
         </div>

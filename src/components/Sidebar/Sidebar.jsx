@@ -1,98 +1,120 @@
-import { Collapse,  IconButton } from "@material-tailwind/react";
+
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-
-import {
-  Card,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-} from "@material-tailwind/react";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-} from "@heroicons/react/24/solid";
-import Testimonials from "../Testimonials/Testimonials";
+import { Card, CardBody, CardFooter, CardHeader, Collapse, IconButton, List, ListItem,  Typography } from "@material-tailwind/react";
+import { IoLogoInstagram } from "react-icons/io";
+import { FaFacebook, FaTwitter } from "react-icons/fa";
 
 
 export const SideBarCard = () =>{
   return (
-    <div>
-      <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
-        {/* <div className="flex border flex-col space-y-3 justify-center w-full p-6 shadow-md rounded-xl sm:px-12 ">
+    <div className="space-y-5 mb-10">
+      <Card className="border">
+        <CardHeader
+          floated={false}
+          shadow={false}
+          className="mx-auto px-2 rounded-3xl"
+        >
           <img
-            src="./my-image.png"
-            alt=""
-            className="w-24 p-1 h-24 border border-gray-200 mx-auto rounded-full dark:bg-gray-500 aspect-square"
+            src="https://i.ibb.co/gRp9JYy/agent1.webp"
+            alt="profile-picture"
           />
-          <div className="space-y-6 text-center divide-y dark:divide-gray-300">
-            <div className="my-2 space-y-4">
-              <h2 className="text-xl font-semibold sm:text-2xl">
-                Mst Surnaly Akter
-              </h2>
-              <p className="px-5 break-words text-xs sm:text-base dark:text-gray-600">
-                surnalyms@gmail.com
-              </p>
-            </div>
-          </div>
-        </div> */}
-        {/* <h2>Testimonials</h2>
-        <Testimonials/> */}
+        </CardHeader>
+        <CardBody className="text-center space-y-2">
+          <Typography variant="h4" color="blue-gray" className="mb-2">
+            Lily Bicharm
+          </Typography>
+          <Typography color="blue-gray" className="font-medium" textGradient>
+            Realtor
+          </Typography>
+          <Typography
+            color="blue-gray"
+            variant="small"
+            className=""
+            textGradient
+          >
+            Whether it is working with a first time homebuyer, a luxury home
+            listing or a seasoned inv ...
+          </Typography>
+          <div className="divider"></div>
+        </CardBody>
+        <CardFooter className="flex justify-center gap-7 pt-2">
+          <FaFacebook className="text-blue-500 cursor-pointer" />
+          <FaTwitter className="text-light-blue-500 cursor-pointer" />
+          <IoLogoInstagram className="text-purple-500 text-xl cursor-pointer" />
+        </CardFooter>
+      </Card>
 
-        <List>
-          <ListItem>
-            <ListItemPrefix>
-              <PresentationChartBarIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Dashboard
-          </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <ShoppingBagIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            E-Commerce
-          </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <InboxIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Inbox
-            <ListItemSuffix>
-              <Chip
-                value="14"
-                size="sm"
-                variant="ghost"
-                color="blue-gray"
-                className="rounded-full"
-              />
-            </ListItemSuffix>
-          </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <UserCircleIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Profile
-          </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <Cog6ToothIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Settings
-          </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <PowerIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Log Out
-          </ListItem>
-        </List>
+      <Card className="border">
+        <CardHeader
+          floated={false}
+          shadow={false}
+          className="mx-auto px-2 rounded-3xl"
+        >
+          <img
+            src="https://i.ibb.co/kBCVnnb/agent2.jpg"
+            alt="profile-picture"
+          />
+        </CardHeader>
+        <CardBody className="text-center space-y-2">
+          <Typography variant="h4" color="blue-gray" className="mb-2">
+            Jack London
+          </Typography>
+          <Typography color="blue-gray" className="font-medium" textGradient>
+            Commercial Broker
+          </Typography>
+          <Typography
+            color="blue-gray"
+            variant="small"
+            className=""
+            textGradient
+          >
+            As an award-winning Realtor ® and CEO of The Egypt Sherrod Real
+            Estate Group, Egypt’s dail ...
+          </Typography>
+          <div className="divider"></div>
+        </CardBody>
+        <CardFooter className="flex justify-center gap-7 pt-2">
+          <FaFacebook className="text-blue-500 cursor-pointer" />
+          <FaTwitter className="text-light-blue-500 cursor-pointer" />
+          <IoLogoInstagram className="text-purple-500 text-xl cursor-pointer" />
+        </CardFooter>
+      </Card>
+
+      <Card className="border">
+        <CardHeader
+          floated={false}
+          shadow={false}
+          className="mx-auto px-2 rounded-3xl"
+        >
+          <img
+            src="https://i.ibb.co/wMNTzsw/agent3.webp"
+            alt="profile-picture"
+          />
+        </CardHeader>
+        <CardBody className="text-center space-y-2">
+          <Typography variant="h4" color="blue-gray" className="mb-2">
+            Dennis Albo
+          </Typography>
+          <Typography color="blue-gray" className="font-medium" textGradient>
+            Salesperson
+          </Typography>
+          <Typography
+            color="blue-gray"
+            variant="small"
+            className=""
+            textGradient
+          >
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority have suff ...
+          </Typography>
+          <div className="divider"></div>
+        </CardBody>
+        <CardFooter className="flex justify-center gap-7 pt-2">
+          <FaFacebook className="text-blue-500 cursor-pointer" />
+          <FaTwitter className="text-light-blue-500 cursor-pointer" />
+          <IoLogoInstagram className="text-purple-500 text-xl cursor-pointer" />
+        </CardFooter>
       </Card>
     </div>
   );
@@ -110,31 +132,39 @@ const Sidebar = () => {
      }, []);
 
   return (
-    <div className="">
-
-
+    <div className="mx-3">
       <div className="hidden lg:block">
+        <div className="shadow-lg p-3 border  rounded-xl bg-base-100 mb-2">
+          <h2 className="text-center text-2xl font-bold text-[#0073e1]">
+            Agents
+          </h2>
+        </div>
         <SideBarCard />
       </div>
 
-          <IconButton
-            variant="text"
-            color="blue-gray"
-            className="lg:hidden"
-            onClick={() => setOpenNav(!openNav)}
-          >
-            {openNav ? (
-              <XMarkIcon className="h-6 w-6" strokeWidth={2} />
-            ) : (
-              <Bars3Icon className="h-6 w-6" strokeWidth={2} />
-            )}
-          </IconButton>
+      <IconButton
+        variant="text"
+        color="blue-gray"
+        className="lg:hidden"
+        onClick={() => setOpenNav(!openNav)}
+      >
+        {openNav ? (
+          <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+        ) : (
+          <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+        )}
+      </IconButton>
 
-
-        <Collapse open={openNav}>
-            <SideBarCard/>
-        </Collapse>
-
+      <Collapse open={openNav}>
+        <div>
+          <div className="shadow-lg p-3 border  rounded-xl bg-base-100 mb-2">
+            <h2 className="text-center text-2xl font-bold text-[#0073e1]">
+              Agents
+            </h2>
+          </div>
+        </div>
+        <SideBarCard />
+      </Collapse>
     </div>
   );
 }
