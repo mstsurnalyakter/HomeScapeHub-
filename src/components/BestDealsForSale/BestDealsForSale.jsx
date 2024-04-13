@@ -1,14 +1,17 @@
-import { useContext, useState } from "react";
+
+import { useContext,  useState } from "react";
 import SaleAndRentCard from "../SaleAndRentCard/SaleAndRentCard";
 import { AuthContext } from "../../providers/FirebaseProvider";
 import { Button } from "@material-tailwind/react";
 import Spinner from "../Spinner/Spinner";
 
-
 const BestDealsForSale = () => {
-    const {data,dataLoading} = useContext(AuthContext);
-     const [showAll, setShowAll] = useState(6);
-     const [btn,setBtn] = useState(false)
+  const { data, dataLoading } = useContext(AuthContext);
+  const [showAll, setShowAll] = useState(6);
+  const [btn, setBtn] = useState(false);
+
+
+
   return (
     <div className="space-y-9">
       <div className="text-center space-y-5">
@@ -27,7 +30,9 @@ const BestDealsForSale = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
         {data.length &&
           data
             .slice(0, showAll)
@@ -58,6 +63,6 @@ const BestDealsForSale = () => {
       </div>
     </div>
   );
-}
+};
 
-export default BestDealsForSale
+export default BestDealsForSale;

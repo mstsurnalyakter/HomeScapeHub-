@@ -13,6 +13,7 @@ import {
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SaleAndRentCard = ({ item }) => {
 
@@ -52,7 +53,9 @@ const SaleAndRentCard = ({ item }) => {
           </div>
         </CardBody>
         <CardFooter className="flex items-center justify-between">
-          <Button className="bg-[#0073e1] capitalize w-full">ddd</Button>
+          <Button className="bg-[#0073e1] capitalize w-full">
+            <Link to={`/property-details/${item?.id}`}>View Property”</Link>
+          </Button>
         </CardFooter>
       </Card>
     </div>

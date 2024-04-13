@@ -13,7 +13,11 @@ const Footer = () => {
         <div className="lg:w-1/3">
           <div className="flex justify-center space-x-3 lg:justify-start">
             <div className="self-center flex items-center text-2xl font-semibold">
-              <img className="w-20" src="./logo2.png" alt="" />
+              <img
+                className="w-20"
+                src="https://i.ibb.co/rbZyyC8/logo2.png"
+                alt=""
+              />
               <h3>HomeScapeHub</h3>
             </div>
           </div>

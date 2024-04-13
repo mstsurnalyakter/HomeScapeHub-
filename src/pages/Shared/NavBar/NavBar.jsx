@@ -70,7 +70,11 @@ const NavBar = () => {
             variant="h4"
             className="mr-4 cursor-pointer py-1.5 lg:ml-2 flex items-center"
           >
-            <img className="w-20" src="./logo2.png" alt="" />
+            <img
+              className="w-20"
+              src="https://i.ibb.co/rbZyyC8/logo2.png"
+              alt=""
+            />
             <h3>HomeScapeHub</h3>
           </Typography>
           <div className="hidden lg:block">
@@ -87,7 +91,7 @@ const NavBar = () => {
                   <img
                     alt="profile image"
                     className="w-full"
-                    src="./my-image.png"
+                    src="https://i.ibb.co/hLmH9kQ/my-image.png"
                   />
                 </div>
               </div>
@@ -140,7 +144,10 @@ const NavBar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full border p-1">
-                <img alt="profile image" src="./my-image.png" />
+                <img
+                  alt="profile image"
+                  src="https://i.ibb.co/hLmH9kQ/my-image.png"
+                />
               </div>
             </div>
             <div

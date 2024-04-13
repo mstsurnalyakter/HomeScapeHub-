@@ -17,7 +17,6 @@ const TestimonialsCard = ({item}) => {
             {title}
           </p>
           <p className="text-[#191229b3]">{testimonial}</p>
-          <ul></ul>
         </div>
         <div className="flex justify-center pt-2 space-x-4 align-center">
           <div className="rating rating-xs">

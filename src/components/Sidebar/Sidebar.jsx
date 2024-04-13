@@ -1,15 +1,36 @@
+// "use client";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { Card, CardBody, CardFooter, CardHeader, Collapse, IconButton, List, ListItem,  Typography } from "@material-tailwind/react";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Collapse,
+  IconButton,
+  Typography,
+} from "@material-tailwind/react";
 import { IoLogoInstagram } from "react-icons/io";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 
+export const SideBarCard = () => {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
 
-export const SideBarCard = () =>{
   return (
     <div className="space-y-5 mb-10">
-      <Card className="border">
+      <Card
+        className="border"
+        data-aos="flip-left"
+        data-aos-duration="2000"
+        data-aos-easing
+      >
         <CardHeader
           floated={false}
           shadow={false}
@@ -45,7 +66,12 @@ export const SideBarCard = () =>{
         </CardFooter>
       </Card>
 
-      <Card className="border">
+      <Card
+        data-aos="flip-left"
+        data-aos-duration="2000"
+        data-aos-easing
+        className="border"
+      >
         <CardHeader
           floated={false}
           shadow={false}
@@ -81,7 +107,12 @@ export const SideBarCard = () =>{
         </CardFooter>
       </Card>
 
-      <Card className="border">
+      <Card
+        data-aos="flip-left"
+        data-aos-duration="2000"
+        data-aos-easing
+        className="border"
+      >
         <CardHeader
           floated={false}
           shadow={false}
@@ -118,18 +149,17 @@ export const SideBarCard = () =>{
       </Card>
     </div>
   );
-}
-
+};
 
 const Sidebar = () => {
-     const [openNav, setOpenNav] = useState(false);
+  const [openNav, setOpenNav] = useState(false);
 
-     useEffect(() => {
-       window.addEventListener(
-         "resize",
-         () => window.innerWidth >= 960 && setOpenNav(false)
-       );
-     }, []);
+  useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth >= 960 && setOpenNav(false)
+    );
+  }, []);
 
   return (
     <div className="mx-3">
@@ -167,6 +197,6 @@ const Sidebar = () => {
       </Collapse>
     </div>
   );
-}
+};
 
-export default Sidebar
+export default Sidebar;

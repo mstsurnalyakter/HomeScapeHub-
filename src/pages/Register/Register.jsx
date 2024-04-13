@@ -11,7 +11,7 @@ const Register = () => {
   return (
     <div className="flex items-center justify-center">
       <div className="min-h-[700px] relative grid grid-cols-1 md:grid-cols-2 shadow-2xl bg-base-100  lg:w-4/5 rounded-xl">
-        <div className="bg-center min-h-[400px] lg:min-h-[700px]  bg-cover bg-no-repeat rounded-l-xl object-cover bg-[url(/register.jpg)]">
+        <div className="bg-center min-h-[400px] lg:min-h-[700px]  bg-cover bg-no-repeat rounded-l-xl object-cover bg-[url(https://i.ibb.co/25SzcyT/register.jpg)]">
           <h2 className="mt-3 md:mt-20 text-center font-bold text-4xl">
             Welcome to <br />
             HomeScapeHub

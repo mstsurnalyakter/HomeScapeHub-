@@ -5,11 +5,20 @@ import "swiper/css/bundle";
 import "swiper/css/pagination";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/FirebaseProvider";
+import Spinner from "../Spinner/Spinner";
 
 
 const Banner = () => {
 
   const {data,dataLoading} = useContext(AuthContext);
+
+  if (dataLoading) {
+    return(
+      <div className="mt-10 w-[300px] mx-auto">
+        <Spinner/>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -24,25 +33,6 @@ const Banner = () => {
         modules={[Autoplay, Navigation, Pagination]}
         loop={true}
       >
-        {/* {data.length &&
-          data.map((item) => {
-            console.log(item.image);
-
-            return ( */}
-        {/* <SwiperSlide>
-                <div
-                  className="min-h-[500px]   bg-center  bg-cover  object-cover flex items-center justify-center"
-                  style={{
-                    backgroundImage: `url(${item.image[1] || "/villa2.webp"})`,
-                  }}
-                >
-                  <h1 className="text-2xl font-bold  text-purple-600">
-                    {item?.estate_title}
-                  </h1>
-                </div>
-              </SwiperSlide> */}
-        {/* );
-          })} */}
 
         <SwiperSlide>
           <div

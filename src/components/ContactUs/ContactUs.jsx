@@ -8,7 +8,7 @@ const ContactUs = () => {
       </h3>
       <div className="grid grid-cols-1 lg:grid-cols-2  items-center gap-6 ">
         <div>
-          <img src="/home-finder.png" alt="" />
+          <img src="https://i.ibb.co/pxMpv1X/home-finder.png" alt="" />
         </div>
         <form className="card-body">
           <div className="form-control">
