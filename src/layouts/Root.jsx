@@ -2,8 +2,8 @@ import Footer from "../pages/Shared/Footer/Footer"
 import NavBar from "../pages/Shared/NavBar/NavBar"
 import { Outlet } from "react-router-dom";
 
-import "react-toastify/dist/ReactToastify.css";
-  import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+//   import { ToastContainer } from "react-toastify";
 
 
 
@@ -15,7 +15,7 @@ const Root = () => {
         <Outlet />
       </div>
       <Footer />
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </div>
   );
 }
