@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
 import { BsTwitter } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../providers/FirebaseProvider";
 
 const Register = () => {
   const [toggle, setToggle] = useState(false);
+  const {createUser} = useContext(AuthContext)
 
   return (
     <div className="flex items-center justify-center">
