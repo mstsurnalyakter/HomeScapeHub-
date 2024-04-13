@@ -30,11 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/update-profile",
-        element: (
-          <PrivateRoute>
-            <UpdateProfile />
-          </PrivateRoute>
-        ),
+        element: <UpdateProfile />,
       },
       {
         path: "/about-us",
@@ -50,7 +46,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/property-details/:id",
-        element: <PropertyDetails />,
+        element: (
+          <PrivateRoute>
+            <PropertyDetails />
+          </PrivateRoute>
+        ),
       },
     ],
   },

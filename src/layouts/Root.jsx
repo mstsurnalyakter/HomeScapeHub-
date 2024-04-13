@@ -11,7 +11,7 @@ const Root = () => {
   return (
     <div className="font-poppins">
       <NavBar />
-      <div className="mx-auto max-w-7xl px-4 lg:px-1  mt-10 mb-10 min-h-[calc(100vh-540px)]">
+      <div className="mx-auto max-w-7xl px-4 lg:px-1  mt-10 mb-10 min-h-[calc(100vh-432px)]">
         <Outlet />
       </div>
       <Footer />

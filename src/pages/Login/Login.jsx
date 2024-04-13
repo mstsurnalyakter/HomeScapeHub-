@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,9 +11,14 @@ import useContextData from "../../hooks/useContextData";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
+  // navigation
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
 
   const [toggle,setToggle] =  useState(false)
   const {signInUser} = useContextData()
+
 
 
   const {
@@ -27,9 +32,12 @@ const Login = () => {
      const { email, password } = data;
 
 
+
      signInUser(email, password)
        .then((result) => {
-         console.log(result.user);
+        if (result?.user) {
+          navigate(from);
+        }
        })
        .catch((error) => {
          console.log(error);
@@ -139,7 +147,6 @@ const Login = () => {
             <div className="divider px-6">OR</div>
 
             <SocialLogin/>
-
 
           </div>
         </div>

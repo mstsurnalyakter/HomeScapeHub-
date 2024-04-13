@@ -1,7 +1,7 @@
 import  { createContext, useEffect, useState } from 'react'
 import PropTypes from "prop-types";
 import useData from '../hooks/useData';
-import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,  signInWithEmailAndPassword,  signInWithPopup, signOut } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,  signInWithEmailAndPassword,  signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 
 //social auth provider
@@ -13,19 +13,30 @@ export const AuthContext = createContext(null)
 
 const FirebaseProvider = ({children}) => {
   const [user,setUser] = useState(null)
+  const [loading,setLoading] = useState(true)
 
-  console.log(user);
 
   const {data,dataLoading} = useData();
 
 //create user
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth,email,password )
 
   };
 
+  //update user profile
+  const updateUserProfile = (fullName, email, photoURL) => {
+    return updateProfile(auth.currentUser, {
+      displayName: fullName,
+      email: email,
+      photoURL: photoURL,
+    });
+  };
+
   //sign in user
   const signInUser = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -38,16 +49,19 @@ const FirebaseProvider = ({children}) => {
 
   // google sign in
   const googleLogin = () =>{
+    setLoading(true);
     return signInWithPopup(auth,googleProvider)
   }
 
   //github sign in
  const githubLogin = () =>{
+  setLoading(true);
   return signInWithPopup(auth,githubProvider)
  }
 
  //twitter sign in
  const twitterLogin = () =>{
+  setLoading(true);
   return signInWithPopup(auth,twitterProvider)
  }
 
@@ -58,6 +72,7 @@ const FirebaseProvider = ({children}) => {
  const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        setLoading(false);
       }
     });
 
@@ -70,12 +85,14 @@ const FirebaseProvider = ({children}) => {
       data,
       dataLoading,
       user,
+      loading,
       createUser,
       logout,
       signInUser,
       googleLogin,
       githubLogin,
       twitterLogin,
+      updateUserProfile,
     };
   return (
     <AuthContext.Provider value={authInfo}>

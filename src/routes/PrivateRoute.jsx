@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
 
     if (loading) {
         return(
-            <div className='mt-10 w-[300px] mx-auto '>
+            <div className='mt-16 w-[300px] mx-auto '>
                 <Spinner/>
             </div>
         )

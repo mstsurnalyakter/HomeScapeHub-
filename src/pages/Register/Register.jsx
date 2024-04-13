@@ -1,6 +1,6 @@
 import {  useEffect, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -11,17 +11,20 @@ import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 
 const Register = () => {
+  const [toggle, setToggle] = useState(false);
+  const { createUser, updateUserProfile } = useContextData();
 
-    const [toggle, setToggle] = useState(false);
-    const { createUser } = useContextData()
-
+  // navigate user
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
 
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
   useEffect(() => {
     if (errors.fullName) {
@@ -44,26 +47,30 @@ const Register = () => {
   ]);
 
   const onSubmit = (data) => {
+    const {fullName, email, photoURL,  password } = data;
 
+    // user create and update profile
+    createUser(email, password)
+      .then((result) => {
+        updateUserProfile(fullName, email, photoURL)
+        .then(()=>{
+                if (result?.user) {
+                  navigate(from);
+                }
+                console.log("Updated user successfully");
+        })
+        .catch(error=>{
+          console.log(error);
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    const {email,password} = data;
-
-    createUser(email,password)
-    .then(result=>{
-      console.log(result.user);
-    })
-    .catch(error=>{
-      console.log(error);
-    })
-
-
-     if (data) {
-       toast.success("Successfully Register");
-     }
-
-
-  }
-
+    if (data) {
+      toast.success("Successfully Register");
+    }
+  };
 
   return (
     <div className="flex items-center justify-center">
@@ -206,8 +213,7 @@ const Register = () => {
 
             <div className="divider px-6 -my-3">OR</div>
 
-            <SocialLogin/>
-
+            <SocialLogin />
           </div>
         </div>
       </div>
