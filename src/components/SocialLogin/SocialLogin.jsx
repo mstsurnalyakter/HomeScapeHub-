@@ -2,7 +2,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BsTwitter } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import useContextData from '../../hooks/useContextData';
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const { googleLogin, githubLogin, twitterLogin } = useContextData();
