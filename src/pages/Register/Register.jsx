@@ -6,8 +6,22 @@ import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../providers/FirebaseProvider";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+
+  const onSubmit = (data) => {
+    console.log(data);
+  }
+
+
   const [toggle, setToggle] = useState(false);
   const {createUser} = useContext(AuthContext)
 
@@ -25,19 +39,20 @@ const Register = () => {
         </div>
         <div className="">
           <div className="shrink-0 w-full ">
-            <form className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <h3 className="text-black text-2xl font-medium">
                 Create an account
               </h3>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text">Full Name</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder="Full Name"
                   className="input input-bordered"
-                  required
+                  // required
+                  {...register("fullName", { required: true })}
                 />
               </div>
               <div className="form-control">
@@ -48,7 +63,7 @@ const Register = () => {
                   type="email"
                   placeholder="email"
                   className="input input-bordered"
-                  required
+                  // required
                 />
               </div>
               <div className="form-control">
@@ -59,7 +74,7 @@ const Register = () => {
                   type="url"
                   placeholder="photoURL"
                   className="input input-bordered"
-                  required
+                  // required
                 />
               </div>
               <div className="form-control relative">
@@ -70,7 +85,7 @@ const Register = () => {
                   type={toggle ? "text" : "password"}
                   placeholder="password"
                   className="input input-bordered"
-                  required
+                  // required
                 />
                 <button
                   className="absolute text-xl top-14 right-2"
