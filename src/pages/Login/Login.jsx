@@ -1,22 +1,69 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { FcGoogle } from "react-icons/fc";
-import { BsTwitter } from "react-icons/bs";
-import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import useContextData from "../../hooks/useContextData";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
 
   const [toggle,setToggle] =  useState(false)
+  const {signInUser} = useContextData()
+
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+
+   const onSubmit = (data) => {
+     const { email, password } = data;
+
+
+     signInUser(email, password)
+       .then((result) => {
+         console.log(result.user);
+       })
+       .catch((error) => {
+         console.log(error);
+       });
+
+
+     if (data) {
+       toast.success("Successfully Register");
+     }
+   };
+
+  useEffect(() => {
+    if (errors.email) {
+      toast.error(errors.email.message);
+    }  else if (errors.password) {
+      toast.error(errors.password.message);
+    }
+  }, [
+    errors.fullName,
+    errors.email,
+    errors.photoURL,
+    errors.termsConditions,
+    errors.password,
+  ]);
+
+
+
 
   return (
     <div className="flex items-center justify-center">
       <Helmet>
         <title>HomeScapeHub | Login</title>
       </Helmet>
-      <div className="min-h-[700px] relative grid grid-cols-1 md:grid-cols-2 shadow-2xl bg-base-100 w-4/5 rounded-xl">
+      <div className="min-h-[700px] relative grid grid-cols-1 lg:grid-cols-2 shadow-2xl bg-base-100 w-4/5 rounded-xl">
         <div className="bg-center min-h-[400px] lg:min-h-[700px] bg-cover bg-no-repeat rounded-l-xl object-cover bg-[url(https://i.ibb.co/25SzcyT/register.jpg)]">
           <h2 className="mt-3 md:mt-20 text-center font-bold text-4xl">
             Welcome to <br />
@@ -25,7 +72,7 @@ const Login = () => {
         </div>
         <div className="">
           <div className="shrink-0 w-full ">
-            <form className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <h3 className="text-black text-2xl font-medium">
                 Login into your account
               </h3>
@@ -37,7 +84,12 @@ const Login = () => {
                   type="email"
                   placeholder="email"
                   className="input input-bordered"
-                  required
+                  {...register("email", {
+                    required: {
+                      value: true,
+                      message: "You must fill Email input field",
+                    },
+                  })}
                 />
               </div>
               <div className="form-control relative">
@@ -48,7 +100,21 @@ const Login = () => {
                   type={toggle ? "text" : "password"}
                   placeholder="password"
                   className="input input-bordered"
-                  required
+                  {...register("password", {
+                    required: {
+                      value: true,
+                      message: "You must fill Password input field",
+                    },
+                    minLength: {
+                      value: 6,
+                      message: "Password length must be at least 6 character",
+                    },
+                    pattern: {
+                      value: /^(?=.*[A-Z])(?=.*[a-z]).+$/,
+                      message:
+                        "Password must contain at least one uppercase letter and one lowercase letter.",
+                    },
+                  })}
                 />
                 <button
                   className="absolute text-xl top-14 right-2"
@@ -72,23 +138,13 @@ const Login = () => {
             </p>
             <div className="divider px-6">OR</div>
 
-            <div className="card-body space-y-4">
-              <button className="btn text-lg">
-                <FcGoogle />
-                Login with Google
-              </button>
-              <button className="btn bg-[#00ACED] hover:bg-[#00ACED] text-lg text-white">
-                <BsTwitter />
-                Login with Twitter
-              </button>
-              <button className="btn text-lg text-white bg-[#c04ddd] hover:bg-[#c04ddd]">
-                <FaGithub className="text-[bg-[#77228C]]" />
-                Login with GitHub
-              </button>
-            </div>
+            <SocialLogin/>
+
+
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 

@@ -11,6 +11,7 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { NavLink } from "react-router-dom";
+import useContextData from "../../../hooks/useContextData";
 
 
 function NavList() {
@@ -27,6 +28,7 @@ function NavList() {
         Home
       </NavLink>
 
+     
       <NavLink
         to={"/update-profile"}
         className={({ isActive }) =>
@@ -54,6 +56,7 @@ function NavList() {
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
+  const {user,logout} = useContextData();
 
   useEffect(() => {
     window.addEventListener(

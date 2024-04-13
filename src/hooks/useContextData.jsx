@@ -1,8 +1,9 @@
 import { useContext } from "react"
+import { AuthContext } from "../providers/FirebaseProvider";
 
 
 const useContextData = () => {
-    const contextData = useContext()
+    const contextData = useContext(AuthContext)
   return contextData;
 }
 

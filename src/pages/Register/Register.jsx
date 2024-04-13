@@ -1,21 +1,20 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { FcGoogle } from "react-icons/fc";
-import { BsTwitter } from "react-icons/bs";
-import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { AuthContext } from "../../providers/FirebaseProvider";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import useContextData from "../../hooks/useContextData";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 
 const Register = () => {
 
     const [toggle, setToggle] = useState(false);
-    const { createUser } = useContext(AuthContext);
+    const { createUser } = useContextData()
+
 
   const {
     register,
@@ -24,11 +23,39 @@ const Register = () => {
     formState: { errors },
   } = useForm()
 
+  useEffect(() => {
+    if (errors.fullName) {
+      toast.error(errors.fullName.message);
+    } else if (errors.email) {
+      toast.error(errors.email.message);
+    } else if (errors.photoURL) {
+      toast.error(errors.photoURL.message);
+    } else if (errors.password) {
+      toast.error(errors.password.message);
+    } else if (errors.termsConditions) {
+      toast.error(errors.termsConditions.message);
+    }
+  }, [
+    errors.fullName,
+    errors.email,
+    errors.photoURL,
+    errors.termsConditions,
+    errors.password,
+  ]);
+
   const onSubmit = (data) => {
 
-   
 
-      console.log(data);
+    const {email,password} = data;
+
+    createUser(email,password)
+    .then(result=>{
+      console.log(result.user);
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+
 
      if (data) {
        toast.success("Successfully Register");
@@ -37,61 +64,6 @@ const Register = () => {
 
   }
 
-  // error
-
-useEffect(() => {
-  if (errors.fullName) {
-    toast.error(errors.fullName.message);
-  } else if (errors.email) {
-    toast.error(errors.email.message);
-  } else if (errors.photoURL) {
-    toast.error(errors.photoURL.message);
-  } else if (errors.password) {
-    toast.error(errors.password.message);
-  } else if (errors.termsConditions) {
-    toast.error(errors.termsConditions.message);
-  }
-}, [
-  errors.fullName,
-  errors.email,
-  errors.photoURL,
-  errors.termsConditions,
-  errors.password,
-]);
-
-
-//  useEffect(() => {
-//    if (errors.fullName) {
-//      toast.error("Full Name field is required!");
-//    } else if (errors.email) {
-//      toast.error("Email field is required!");
-//    } else if (errors.photoURL) {
-//      toast.error("Photo URL field is required!");
-//    } else if (errors.password) {
-//      toast.error("Photo URL field is required!");
-//    } else if (errors.termsConditions) {
-//      toast.error("You need to agree with terms and conditions !");
-//    }
-//  }, [
-//    errors.fullName,
-//    errors.email,
-//    errors.photoURL,
-//    errors.termsConditions,
-//    errors.password,
-//  ]);
-
-// useEffect(()=>{
-//   if (errors) {
-//     toast.error(errors.message);
-//   }
-// },[errors])
-
-
-console.log(errors);
-
-
-
-
 
   return (
     <div className="flex items-center justify-center">
@@ -99,7 +71,7 @@ console.log(errors);
         <title>HomeScapeHub | Register</title>
       </Helmet>
       <ToastContainer />
-      <div className="min-h-[700px] relative grid grid-cols-1 md:grid-cols-2 shadow-2xl bg-base-100  lg:w-4/5 rounded-xl">
+      <div className="min-h-[700px] relative grid grid-cols-1 lg:grid-cols-2 shadow-2xl bg-base-100  w-4/5 rounded-xl">
         <div className="bg-center min-h-[400px] lg:min-h-[700px]  bg-cover bg-no-repeat rounded-l-xl object-cover bg-[url(https://i.ibb.co/25SzcyT/register.jpg)]">
           <h2 className="mt-3 md:mt-20 text-center font-bold text-4xl">
             Welcome to <br />
@@ -218,8 +190,7 @@ console.log(errors);
               </div>
 
               <div className="form-control mt-1">
-                <button
-                className="btn bg-[#0073e1] hover:bg-[#0073e1] text-white">
+                <button className="btn bg-[#0073e1] hover:bg-[#0073e1] text-white">
                   Register
                 </button>
               </div>
@@ -227,7 +198,7 @@ console.log(errors);
 
             <p className=" mb-6 -mt-3 ml-8">
               <span>Already have an account. Please </span>
-              <Link className="underline text-[#0073e1]" to={"/register"}>
+              <Link className="underline text-[#0073e1]" to={"/login"}>
                 {" "}
                 Login Here!
               </Link>
@@ -235,23 +206,12 @@ console.log(errors);
 
             <div className="divider px-6 -my-3">OR</div>
 
-            <div className="card-body space-y-1">
-              <button className="btn text-lg">
-                <FcGoogle />
-                Register with Google
-              </button>
-              <button className="btn bg-[#00ACED] hover:bg-[#00ACED] text-lg text-white">
-                <BsTwitter />
-                Register with Twitter
-              </button>
-              <button className="btn text-lg text-white bg-[#c04ddd] hover:bg-[#c04ddd]">
-                <FaGithub className="text-[bg-[#77228C]]" />
-                Register with GitHub
-              </button>
-            </div>
+            <SocialLogin/>
+
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
