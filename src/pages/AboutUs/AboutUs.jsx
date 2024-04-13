@@ -5,6 +5,7 @@ import Spinner from "../../components/Spinner/Spinner";
 import TeamCard from "../../components/TeamCard/TeamCard";
 import useTeam from "../../hooks/useTeam";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AboutUs = () => {
   const { teamData, dataLoading } = useTeam();
@@ -22,6 +23,9 @@ const AboutUs = () => {
 
   return (
     <div className="space-y-20">
+      <Helmet>
+        <title>HomeScapeHub | About Us</title>
+      </Helmet>
       <div
         data-aos="fade-right"
         className="grid  grid-cols-1 lg:grid-cols-2 gap-6 shadow-xl px-10 py-10 border-2 rounded-xl items-center"

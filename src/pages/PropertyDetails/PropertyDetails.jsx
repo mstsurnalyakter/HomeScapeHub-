@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/bundle";
 import "swiper/css/pagination";
 import useData from '../../hooks/useData';
+import { Helmet } from 'react-helmet-async';
 
 const PropertyDetails = () => {
     const [singleData,setSingleData] = useState({});
@@ -60,6 +61,9 @@ const PropertyDetails = () => {
 
   return (
     <div className="space-y-6">
+      <Helmet>
+        <title>HomeScapeHub | Property Details</title>
+      </Helmet>
       <div className="space-x-4">
         <Button className="bg-[#0073e1] capitalize">{status}</Button>
         <Button className="bg-[#0073e1] capitalize">{segment_name}</Button>
@@ -70,7 +74,7 @@ const PropertyDetails = () => {
         <span>{location}</span>
       </div>
 
-        <DetailsPageSlider singleData={singleData} />
+      <DetailsPageSlider singleData={singleData} />
 
       <div className="flex items-center gap-20   text-[#0073e1] font-bold">
         <div className="flex items-center gap-3">
@@ -80,7 +84,6 @@ const PropertyDetails = () => {
         <div className="flex items-center gap-3">
           <IoPricetagOutline className="text-2xl" />
           <span className="text-4xl">{price}</span>
-
         </div>
       </div>
       <div className="space-y-3">
