@@ -5,7 +5,7 @@ import useContextData from '../../hooks/useContextData';
 import { useLocation, useNavigate } from "react-router";
 
 const SocialLogin = () => {
-  const { googleLogin, githubLogin } = useContextData();
+  const { googleLogin, githubLogin, twitterLogin } = useContextData();
 
   // navigate user
   const navigate = useNavigate();
@@ -38,7 +38,10 @@ const SocialLogin = () => {
           <FaGithub className="text-[bg-[#77228C]]" />
           GitHub
         </button>
-        <button className="btn bg-[#00ACED] hover:bg-[#00ACED] text-lg text-white">
+        <button
+          onClick={() => handleSocialLogin(twitterLogin)}
+          className="btn bg-[#00ACED] hover:bg-[#00ACED] text-lg text-white"
+        >
           <BsTwitter />
           Twitter
         </button>

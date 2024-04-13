@@ -10,7 +10,7 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useContextData from "../../../hooks/useContextData";
 
 
@@ -28,7 +28,17 @@ function NavList() {
         Home
       </NavLink>
 
-     
+      <NavLink
+        to={"/profile"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-[#0073e1] px-3 py-1  text-white  rounded-lg"
+            : "p-2 text-[#131313CC]"
+        }
+      >
+        Profile
+      </NavLink>
+
       <NavLink
         to={"/update-profile"}
         className={({ isActive }) =>
@@ -84,44 +94,60 @@ const NavBar = () => {
             <NavList />
           </div>
           <div className="hidden gap-4 lg:flex items-center">
-            <div className="dropdown w-10 dropdown-end dropdown-hover flex items-center justify-center rounded-full">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full border p-1">
-                  <img
-                    alt="profile image"
-                    className="w-full"
-                    src="https://i.ibb.co/hLmH9kQ/my-image.png"
-                  />
+            {user && (
+              <div className="dropdown w-20 dropdown-end dropdown-hover flex items-center justify-center rounded-full">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full border p-1">
+                    <img
+                      alt="profile image"
+                      className="w-full"
+                      src={
+                        user?.photoURL ||
+                        "https://i.ibb.co/hLmH9kQ/my-image.png"
+                      }
+                    />
+                  </div>
+                </div>
+                <div
+                  tabIndex={0}
+                  className="mt-44 z-[1] px-5 py-10  border-s-lime-300 shadow menu space-y-3 menu-sm dropdown-content bg-base-100 rounded-box w-96"
+                >
+                  <p className="text-center">
+                    <span className="font-bold">Name:</span>{" "}
+                    {user?.displayName || "user name not found"}
+                  </p>
+                  <p className="text-center break-words">
+                    {" "}
+                    <span className="font-bold">Email:</span>{" "}
+                    {user?.email || "user email not found"}
+                  </p>
                 </div>
               </div>
-              <div
-                tabIndex={0}
-                className="mt-44 z-[1] px-5 py-10  border-s-lime-300 shadow menu space-y-3 menu-sm dropdown-content bg-base-100 rounded-box w-64"
-              >
-                <p>
-                  <span className="font-bold">Name:</span> Mst Surnaly Akter
-                </p>
-                <p>
-                  {" "}
-                  <span className="font-bold">Name:</span> surnalyms@gmail.com
-                </p>
-              </div>
-            </div>
+            )}
 
-            <NavLink
-              to={"/login"}
-              className={({ isActive }) =>
-                isActive
-                  ? "bg-[#0073e1] px-3 py-1 flex items-center justify-center  text-white  rounded-lg"
-                  : "text-[#131313CC] border border-[#0073e1] px-3 py-1 rounded-lg"
-              }
-            >
-              Login
-            </NavLink>
+            {user ? (
+              <button
+                onClick={logout}
+                className="text-[#131313CC] border flex items-center justify-center border-[#0073e1] px-3 py-1 rounded-lg"
+              >
+                Logout
+              </button>
+            ) : (
+              <NavLink
+                to={"/login"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-[#0073e1] px-3 py-1 flex items-center justify-center  text-white  rounded-lg"
+                    : "text-[#131313CC] border border-[#0073e1] px-3 py-1 rounded-lg"
+                }
+              >
+                Login
+              </NavLink>
+            )}
           </div>
           <IconButton
             variant="text"
@@ -140,42 +166,58 @@ const NavBar = () => {
         <Collapse open={openNav}>
           <NavList />
 
-          <div className="dropdown flex w-10 text-black mb-5 dropdown-hover mx-auto items-center dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full border p-1">
-                <img
-                  alt="profile image"
-                  src="https://i.ibb.co/hLmH9kQ/my-image.png"
-                />
+          {user && (
+            <div className="dropdown flex  w-10 text-black mb-5 dropdown-hover mx-auto items-center dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full border p-1">
+                  <img
+                    alt="profile image"
+                    src={
+                      user?.photoURL || "https://i.ibb.co/hLmH9kQ/my-image.png"
+                    }
+                  />
+                </div>
+              </div>
+              <div
+                tabIndex={0}
+                className="mt-3 z-[1] px-5 py-10 border border-s-lime-300 shadow menu space-y-3 menu-sm dropdown-content bg-base-100 rounded-box w-64"
+              >
+                <p className="text-center">
+                  <span className="font-bold">Name:</span>{" "}
+                  {user?.displayName || "user name not found"}
+                </p>
+                <p className="text-center break-words">
+                  {" "}
+                  <span className="font-bold">Email:</span>{" "}
+                  {user?.email || "user email not found"}
+                </p>
               </div>
             </div>
-            <div
-              tabIndex={0}
-              className="mt-3 z-[1] px-5 py-10 border border-s-lime-300 shadow menu space-y-3 menu-sm dropdown-content bg-base-100 rounded-box w-64"
+          )}
+
+          {user ? (
+            <button
+              onClick={logout}
+              className="text-[#131313CC] border flex items-center justify-center border-[#0073e1] px-3 py-1 rounded-lg"
             >
-              <p>
-                <span className="font-bold">Name:</span> Mst Surnaly Akter
-              </p>
-              <p>
-                {" "}
-                <span className="font-bold">Name:</span> surnalyms@gmail.com
-              </p>
-            </div>
-          </div>
-          <NavLink
-            to={"/login"}
-            className={({ isActive }) =>
-              isActive
-                ? "bg-[#0073e1] px-3 py-1 flex items-center justify-center  text-white  rounded-lg"
-                : "text-[#131313CC] border flex items-center justify-center border-[#0073e1] px-3 py-1 rounded-lg"
-            }
-          >
-            Login
-          </NavLink>
+              Logout
+            </button>
+          ) : (
+            <NavLink
+              to={"/login"}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-[#0073e1] px-3 py-1 flex items-center justify-center  text-white  rounded-lg"
+                  : "text-[#131313CC] border flex items-center justify-center border-[#0073e1] px-3 py-1 rounded-lg"
+              }
+            >
+              Login
+            </NavLink>
+          )}
         </Collapse>
       </Navbar>
     </div>

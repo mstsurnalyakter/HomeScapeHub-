@@ -7,16 +7,21 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
 import NotFound from "../pages/NotFound/NotFound";
+import Profile from "../pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement:<NotFound/>,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "/update-profile",
