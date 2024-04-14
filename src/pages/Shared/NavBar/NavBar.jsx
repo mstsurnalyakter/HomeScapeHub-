@@ -10,7 +10,7 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import useContextData from "../../../hooks/useContextData";
 
 
@@ -88,7 +88,7 @@ const NavBar = () => {
               src="https://i.ibb.co/rbZyyC8/logo2.png"
               alt=""
             />
-            <h3>HomeScapeHub</h3>
+            <span>HomeScapeHub</span>
           </Typography>
           <div className="hidden lg:block">
             <NavList />
