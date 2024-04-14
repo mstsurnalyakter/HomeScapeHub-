@@ -1,7 +1,6 @@
 import  { createContext, useEffect, useState } from 'react'
 import PropTypes from "prop-types";
-import useData from '../hooks/useData';
-import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,  signInWithEmailAndPassword,  signInWithPopup, signOut, updateEmail, updateProfile } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,  signInWithEmailAndPassword,  signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 
 //social auth provider
@@ -13,10 +12,11 @@ export const AuthContext = createContext(null)
 
 const FirebaseProvider = ({children}) => {
   const [user,setUser] = useState(null)
-  const [loading,setLoading] = useState(true)
+  const [loading,setLoading] = useState(false)
 
 
-  const {data,dataLoading} = useData();
+
+
 
 //create user
   const createUser = (email, password) => {
@@ -25,26 +25,16 @@ const FirebaseProvider = ({children}) => {
 
   };
 
-  //update user profile
-  // const updateUserProfile = (fullName, email, photoURL) => {
-  //   return updateProfile(auth.currentUser, {
-  //     displayName: fullName,
-  //     email: email,
-  //     photoURL: photoURL,
-  //   });
-  // };
 
     const updateUserProfile = (fullName,  photoURL) => {
+      setLoading(true);
       return updateProfile(auth.currentUser, {
         displayName: fullName,
         photoURL: photoURL,
       });
     };
 
-  //update email
-  // const updateUserEmail = (email) => {
-  //   return updateEmail(auth.currentUser, email)
-  // };
+
 
   //sign in user
   const signInUser = (email, password) => {
@@ -52,11 +42,12 @@ const FirebaseProvider = ({children}) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  //logout
-  const logout = () =>{
-    setUser(null)
-   return signOut(auth);
-  }
+
+    const logout = () => {
+      setUser(null);
+      // setLoading(false)
+      signOut(auth);
+    };
 
 
   // google sign in
@@ -81,21 +72,20 @@ const FirebaseProvider = ({children}) => {
 
   //observer
   useEffect(()=>{
- const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-        setLoading(false);
-      }
-    });
+ const unsubscribe = onAuthStateChanged(auth, (user) => {
+   if (user) {
+     setUser(user);
+    }
+    setLoading(false);
 
-    return () => unSubscribe();
+ });
+
+    return () => unsubscribe();
 
   },[])
 
 
     const authInfo = {
-      data,
-      dataLoading,
       user,
       setUser,
       loading,

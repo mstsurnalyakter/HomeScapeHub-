@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const TeamCard = ({item}) => {
     const { name, profession, image } = item || {};
     return (
-      <div className="flex border flex-col justify-center mx-auto   py-6 shadow-md rounded-xl sm:px-12">
+      <div className="flex w-full border flex-col justify-center mx-auto  py-6 shadow-md rounded-xl sm:px-12">
         <img
           src={image}
           alt=""

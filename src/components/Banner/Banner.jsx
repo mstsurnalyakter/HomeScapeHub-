@@ -3,14 +3,15 @@ import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/bundle";
 import "swiper/css/pagination";
-import { useContext } from "react";
-import { AuthContext } from "../../providers/FirebaseProvider";
+
 import Spinner from "../Spinner/Spinner";
+import useData from "../../hooks/useData";
 
 
 const Banner = () => {
 
-  const {data,dataLoading} = useContext(AuthContext);
+  const {data,dataLoading} = useData();
+
 
   if (dataLoading) {
     return(

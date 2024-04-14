@@ -22,7 +22,6 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -49,35 +48,17 @@ const Register = () => {
   const onSubmit = (data) => {
     const { fullName, email, photoURL, password } = data;
 
-    // user create and update profile
-    //   createUser(email, password)
-    //     .then((result) => {
-    //       updateUserProfile(fullName, email, photoURL)
-    //       .then(()=>{
-    //               if (result?.user) {
-    //                 navigate(from);
-    //               }
-    //               console.log("Updated user successfully");
-    //       })
-    //       .catch(error=>{
-    //         console.log(error);
-    //       })
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-
-    //   if (data) {
-    //     toast.success("Successfully Register");
-    //   }
-    // };
-
     createUser(email, password)
       .then((result) => {
         updateUserProfile(fullName, photoURL)
           .then(() => {
             if (result?.user) {
-              navigate(from);
+              toast.success("Successfully Register!");
+
+              setTimeout(() => {
+                navigate(from);
+                 window.location.reload();
+              }, 2000);
             }
           })
           .catch((error) => {
@@ -85,12 +66,8 @@ const Register = () => {
           });
       })
       .catch((error) => {
-        console.log(error);
+         toast.error(error.message || "An error occurred while registering.");
       });
-
-    if (data) {
-      toast.success("Successfully Register");
-    }
   };
 
   return (
@@ -234,7 +211,7 @@ const Register = () => {
 
             <div className="divider px-6 -my-3">OR</div>
 
-            <SocialLogin />
+            <SocialLogin text={"Register"} />
           </div>
         </div>
       </div>

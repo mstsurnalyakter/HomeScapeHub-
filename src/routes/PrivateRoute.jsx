@@ -15,11 +15,15 @@ const PrivateRoute = ({children}) => {
         )
     }
 
+
+
     if (!user) {
         return <Navigate to={'/login'} state={location?.pathname || '/'}  />
     }
 
-  return <div>{children}</div>;
+  return (
+    <div>{children}</div>
+  );
 }
 
 PrivateRoute.propTypes = {
@@ -27,3 +31,36 @@ PrivateRoute.propTypes = {
 }
 
 export default PrivateRoute
+
+// import useContextData from "../hooks/useContextData";
+// import Spinner from "../components/Spinner/Spinner";
+// import { Navigate, useLocation } from "react-router-dom";
+
+// const PrivateRoute = ({ children }) => {
+//   const { user, loading } = useContextData();
+//   const location = useLocation();
+
+//   console.log(loading);
+//   console.log(user);
+
+//   if (loading) {
+//     return (
+//       <div className="mt-16 w-[300px] mx-auto ">
+//         <Spinner />
+//       </div>
+//     );
+//   }
+
+//   if (!user) {
+//    return <Navigate to={`/login?redirect=${location.pathname}`} />;
+
+//   }
+//   console.log(loading);
+//   return <div>{children}</div>;
+// };
+
+// PrivateRoute.propTypes = {
+//   children: PropTypes.node,
+// };
+
+// export default PrivateRoute;

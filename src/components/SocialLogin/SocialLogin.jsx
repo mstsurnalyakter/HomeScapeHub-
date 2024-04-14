@@ -1,10 +1,12 @@
+import PropTypes from "prop-types";
 import { FcGoogle } from "react-icons/fc";
 import { BsTwitter } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
-import useContextData from '../../hooks/useContextData';
+import useContextData from "../../hooks/useContextData";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const SocialLogin = () => {
+const SocialLogin = ({ text }) => {
   const { googleLogin, githubLogin, twitterLogin } = useContextData();
 
   // navigate user
@@ -15,14 +17,18 @@ const SocialLogin = () => {
   const handleSocialLogin = (socialProvider) => {
     socialProvider().then((result) => {
       if (result?.user) {
-        navigate(from);
+        toast.success(`Successfully ${text} !`);
+        setTimeout(() => {
+          navigate(from);
+        }, 2000);
       }
     });
   };
 
   return (
     <>
-      <div className="card-body space-y-1">
+      <div className="card-body space-y-1 -mt-4">
+        <h3 className="text-center font-bold">Continue with</h3>
         <button
           onClick={() => handleSocialLogin(googleLogin)}
           className="btn text-lg"
@@ -47,8 +53,10 @@ const SocialLogin = () => {
       </div>
     </>
   );
-}
+};
 
+SocialLogin.propTypes = {
+  text: PropTypes.text,
+};
 
-
-export default SocialLogin
+export default SocialLogin;

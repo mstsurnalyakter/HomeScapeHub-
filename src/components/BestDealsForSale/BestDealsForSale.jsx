@@ -1,12 +1,12 @@
 
-import { useContext,  useState } from "react";
+import {   useState } from "react";
 import SaleAndRentCard from "../SaleAndRentCard/SaleAndRentCard";
-import { AuthContext } from "../../providers/FirebaseProvider";
 import { Button } from "@material-tailwind/react";
 import Spinner from "../Spinner/Spinner";
+import useData from "../../hooks/useData";
 
 const BestDealsForSale = () => {
-  const { data, dataLoading } = useContext(AuthContext);
+  const { data, dataLoading } = useData();
   const [showAll, setShowAll] = useState(6);
   const [btn, setBtn] = useState(false);
 

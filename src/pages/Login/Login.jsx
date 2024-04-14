@@ -24,7 +24,7 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
   } = useForm()
 
@@ -35,18 +35,23 @@ const Login = () => {
 
      signInUser(email, password)
        .then((result) => {
-        if (result?.user) {
-          navigate(from);
+
+         if (result?.user) {
+          // navigate(from);
+          // toast.success("Successfully logged in!");
+          toast.success("Successfully logged in!");
+          setTimeout(() => {
+            navigate(from);
+             window.location.reload();
+          }, 2000);
         }
        })
        .catch((error) => {
-         console.log(error);
+        toast.error(error.message || "An error occurred while logging in.");
        });
 
 
-     if (data) {
-       toast.success("Successfully Register");
-     }
+
    };
 
   useEffect(() => {
@@ -56,10 +61,7 @@ const Login = () => {
       toast.error(errors.password.message);
     }
   }, [
-    errors.fullName,
     errors.email,
-    errors.photoURL,
-    errors.termsConditions,
     errors.password,
   ]);
 
@@ -113,15 +115,6 @@ const Login = () => {
                       value: true,
                       message: "You must fill Password input field",
                     },
-                    minLength: {
-                      value: 6,
-                      message: "Password length must be at least 6 character",
-                    },
-                    pattern: {
-                      value: /^(?=.*[A-Z])(?=.*[a-z]).+$/,
-                      message:
-                        "Password must contain at least one uppercase letter and one lowercase letter.",
-                    },
                   })}
                 />
                 <button
@@ -146,8 +139,7 @@ const Login = () => {
             </p>
             <div className="divider px-6">OR</div>
 
-            <SocialLogin/>
-
+            <SocialLogin text={"logged in"} />
           </div>
         </div>
       </div>
