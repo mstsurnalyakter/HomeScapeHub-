@@ -46,14 +46,16 @@ const { user, updateUserProfile,  setUser} = useContextData();
 
 
  return (
-   <div  className="flex  min-h-[500px] flex-col  items-center justify-center">
+   <div className="flex  min-h-[500px] flex-col  items-center justify-center">
      <Helmet>
        <title>HomeScapeHub | Update Profile</title>
      </Helmet>
 
      <div className="shrink-0 w-full ">
        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-         <h3 className="text-black text-2xl font-medium">Create an account</h3>
+         <h3 className="text-3xl font-bold bg-gradient-to-r from-[#328EFF] via-purple-600 to-pink-300 bg-300% text-transparent bg-clip-text animate-gradient text-center">
+           Update Profile
+         </h3>
 
          <div className="form-control">
            <label className="label">
@@ -94,7 +96,7 @@ const { user, updateUserProfile,  setUser} = useContextData();
 
          <div className="form-control mt-1">
            <button
-            //  onClick={() => setEdit(!edit)}
+             //  onClick={() => setEdit(!edit)}
              className=" bg-gradient-to-r shadow-md text-center text-3xl from-pink-300 via-purple-600 to-[#328EFF] bg-300% rounded-xl animate-gradient text-white px-5 py-3"
            >
              Save
