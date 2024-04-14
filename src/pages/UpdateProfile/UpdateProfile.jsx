@@ -1,16 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import useContextData from "../../hooks/useContextData";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 
 const UpdateProfile = () => {
-const { user, updateUserProfile,  setUser} =
-  useContextData();
-  const [edit,setEdit] = useState(true);
-  // const [key,setKey] = useState(0)
+const { user, updateUserProfile,  setUser} = useContextData();
+ const navigate = useNavigate();
 
 
   const {
@@ -27,18 +25,20 @@ const { user, updateUserProfile,  setUser} =
 
 
 
-
   const onSubmit = (data) => {
     const { fullName, photoURL } = data;
 
     updateUserProfile(fullName, photoURL)
       .then(() => {
           setUser({ fullName,  photoURL });
-          console.log("User Profile updated successfully");
-          // window.location.reload();
+          toast.success("User Profile updated successfully");
+          setTimeout(() => {
+            navigate('/profile');
+            window.location.reload();
+          }, 2000);
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message );
       });
   };
 
@@ -94,7 +94,7 @@ const { user, updateUserProfile,  setUser} =
 
          <div className="form-control mt-1">
            <button
-             onClick={() => setEdit(!edit)}
+            //  onClick={() => setEdit(!edit)}
              className=" bg-gradient-to-r shadow-md text-center text-3xl from-pink-300 via-purple-600 to-[#328EFF] bg-300% rounded-xl animate-gradient text-white px-5 py-3"
            >
              Save

@@ -1,10 +1,22 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 
-import PropTypes from 'prop-types'
+const TestimonialsCard = ({ item }) => {
+  const { name, title, testimonial, image } = item || {};
 
-const TestimonialsCard = ({item}) => {
-    const { name, title, testimonial, image } = item || {};
+  useEffect(() => {
+    AOS.init({ disable: "mobile" });
+  }, []);
+
   return (
-    <div className="flex border flex-col justify-center mx-auto   py-6 shadow-md rounded-xl sm:px-12">
+    <div
+      data-aos="fade-right"
+      data-aos-duration="2000"
+      data-aos-easing
+      className="flex border flex-col justify-center mx-auto   py-6 shadow-md rounded-xl sm:px-12"
+    >
       <img
         src={image}
         alt=""
@@ -107,10 +119,10 @@ const TestimonialsCard = ({item}) => {
       </div>
     </div>
   );
-}
+};
 
 TestimonialsCard.propTypes = {
-    item:PropTypes.object.isRequired
-}
+  item: PropTypes.object.isRequired,
+};
 
-export default TestimonialsCard
+export default TestimonialsCard;

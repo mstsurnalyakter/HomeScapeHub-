@@ -4,8 +4,6 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import useContextData from "../../hooks/useContextData";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
@@ -37,8 +35,6 @@ const Login = () => {
        .then((result) => {
 
          if (result?.user) {
-          // navigate(from);
-          // toast.success("Successfully logged in!");
           toast.success("Successfully logged in!");
           setTimeout(() => {
             navigate(from);
@@ -143,7 +139,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+
     </div>
   );
 

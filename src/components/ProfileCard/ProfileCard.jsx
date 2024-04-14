@@ -10,11 +10,11 @@ const ProfileCard = () => {
         bg-gradient-to-r from-[#328EFF] via-purple-600 to-pink-300 bg-300%  animate-gradient
         "
           >
-            <div className='bg-transparent'>
+            <div className='bg-transparent text-black '>
               <img
                 src={user?.photoURL}
-                alt=""
-                className="w-32 h-32 border-[4px] mx-auto rounded-full dark:bg-gray-500 aspect-square
+                alt="User Profile Image"
+                className="w-32 h-32 border-[4px] mx-auto rounded-full  dark:bg-gray-500 aspect-square
             bg-white
 
             "

@@ -1,22 +1,12 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 import useTestimonials from "../../hooks/useTestimonials";
 import Spinner from "../Spinner/Spinner";
 import TestimonialsCard from "../TestimonialsCard/TestimonialsCard";
-import { useEffect } from "react";
+
 
 const Testimonials = () => {
   const { testimonials, dataLoading } = useTestimonials();
 
-  useEffect(() => {
-    AOS.init({
-      offset: 200,
-      duration: 600,
-      easing: "ease-in-sine",
-      delay: 100,
-    });
-  }, []);
 
   return (
     <div className="space-y-9">
@@ -35,7 +25,6 @@ const Testimonials = () => {
       )}
       <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        data-aos="fade-right"
       >
         {testimonials.length &&
           testimonials.map((item) => (

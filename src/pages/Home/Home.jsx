@@ -1,4 +1,3 @@
-// "use client"
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -12,12 +11,13 @@ import { Helmet } from "react-helmet-async";
 
 
 const Home = () => {
-  useEffect(()=>{
-    AOS.init({
-      offset: 200,
-    });
-    AOS.refresh();
-  },[])
+
+   useEffect(() => {
+     AOS.init({
+       disable: "mobile",
+     });
+   }, []);
+
   return (
     <>
     <Helmet>

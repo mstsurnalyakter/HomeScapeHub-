@@ -18,9 +18,7 @@ import { FaFacebook, FaTwitter } from "react-icons/fa";
 
 export const SideBarCard = () => {
   useEffect(() => {
-    AOS.init({
-      once: true,
-    });
+    AOS.init({ disable: "mobile" });
   }, []);
 
   return (

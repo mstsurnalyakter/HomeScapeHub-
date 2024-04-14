@@ -12,9 +12,6 @@ const AboutUs = () => {
 
   useEffect(()=>{
      AOS.init({
-       offset: 200,
-       duration: 600,
-       easing: "ease-in-sine",
        disable: 'mobile'
      });
   },[])
@@ -28,6 +25,8 @@ const AboutUs = () => {
       </Helmet>
       <div
         data-aos="fade-right"
+        data-aos-easing
+        data-aos-duration="2000"
         className="grid  grid-cols-1 lg:grid-cols-2 gap-6 shadow-xl px-10 py-10 border-2 rounded-xl items-center"
       >
         <div className="space-y-3">
@@ -65,6 +64,8 @@ const AboutUs = () => {
 
       <div
         data-aos="fade-left"
+        data-aos-duration="2000"
+        data-aos-easing
         className="bg-[#0073e1] flex flex-col items-center justify-center py-2 space-y-8 rounded-xl shadow-xl"
       >
         <div className="mt-10 text-center text-white space-y-5">
@@ -89,7 +90,12 @@ const AboutUs = () => {
         </div>
       )}
 
-      <div className="space-y-9" data-aos="fade-right">
+      <div
+        className="space-y-9"
+        data-aos="fade-right"
+        data-aos-duration="2000"
+        data-aos-easing
+      >
         <h3 className="text-2xl font-bold text-center">Our Team</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {teamData.length &&

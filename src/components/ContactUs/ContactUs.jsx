@@ -1,7 +1,21 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const ContactUs = () => {
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+    });
+  }, []);
+
   return (
-    <div className="shadow-lg border rounded-l-xl px-6 items-center min-h-[500px] ">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="2000"
+      data-aos-easing
+      className="shadow-lg border rounded-l-xl px-6 items-center min-h-[500px] "
+    >
       <h3 className="w-2/3 mx-auto text-center mt-10 font-bold text-xl">
         Contact us today if you’d like to know more about how we help buy, sell
         or rent your home
@@ -40,6 +54,6 @@ const ContactUs = () => {
       </div>
     </div>
   );
-}
+};
 
-export default ContactUs
+export default ContactUs;

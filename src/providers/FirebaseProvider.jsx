@@ -11,11 +11,9 @@ const twitterProvider = new TwitterAuthProvider();
 export const AuthContext = createContext(null)
 
 const FirebaseProvider = ({children}) => {
+
   const [user,setUser] = useState(null)
-  const [loading,setLoading] = useState(false)
-
-
-
+  const [loading,setLoading] = useState(true)
 
 
 //create user

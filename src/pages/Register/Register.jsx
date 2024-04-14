@@ -2,8 +2,6 @@ import {  useEffect, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import useContextData from "../../hooks/useContextData";
@@ -75,7 +73,6 @@ const Register = () => {
       <Helmet>
         <title>HomeScapeHub | Register</title>
       </Helmet>
-      <ToastContainer />
       <div className="min-h-[700px] relative grid grid-cols-1 lg:grid-cols-2 shadow-2xl bg-base-100  w-4/5 rounded-xl">
         <div className="bg-center min-h-[400px] lg:min-h-[700px]  bg-cover bg-no-repeat rounded-l-xl object-cover bg-[url(https://i.ibb.co/25SzcyT/register.jpg)]">
           <h2 className="mt-3 md:mt-20 text-center font-bold text-4xl">
@@ -215,7 +212,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+
     </div>
   );
 };
