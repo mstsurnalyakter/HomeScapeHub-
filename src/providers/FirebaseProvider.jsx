@@ -1,7 +1,7 @@
 import  { createContext, useEffect, useState } from 'react'
 import PropTypes from "prop-types";
 import useData from '../hooks/useData';
-import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,  signInWithEmailAndPassword,  signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,  signInWithEmailAndPassword,  signInWithPopup, signOut, updateEmail, updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 
 //social auth provider
@@ -26,13 +26,25 @@ const FirebaseProvider = ({children}) => {
   };
 
   //update user profile
-  const updateUserProfile = (fullName, email, photoURL) => {
-    return updateProfile(auth.currentUser, {
-      displayName: fullName,
-      email: email,
-      photoURL: photoURL,
-    });
-  };
+  // const updateUserProfile = (fullName, email, photoURL) => {
+  //   return updateProfile(auth.currentUser, {
+  //     displayName: fullName,
+  //     email: email,
+  //     photoURL: photoURL,
+  //   });
+  // };
+
+    const updateUserProfile = (fullName,  photoURL) => {
+      return updateProfile(auth.currentUser, {
+        displayName: fullName,
+        photoURL: photoURL,
+      });
+    };
+
+  //update email
+  // const updateUserEmail = (email) => {
+  //   return updateEmail(auth.currentUser, email)
+  // };
 
   //sign in user
   const signInUser = (email, password) => {
@@ -85,6 +97,7 @@ const FirebaseProvider = ({children}) => {
       data,
       dataLoading,
       user,
+      setUser,
       loading,
       createUser,
       logout,

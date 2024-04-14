@@ -1,13 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import useContextData from '../../hooks/useContextData';
+// import useContextData from '../../hooks/useContextData';
+import { Helmet } from 'react-helmet-async';
+import ProfileCard from '../../components/ProfileCard/ProfileCard';
 
 const Profile = () => {
-  const {user} = useContextData();
-  console.log(user);
+  // const {user} = useContextData();
+
   return (
     <div className="flex  min-h-[500px] items-center justify-center">
-      {user && (
+      <Helmet>
+        <title>HomeScapeHub | Profile</title>
+      </Helmet>
+      <ProfileCard/>
+      {/* {user && (
         <div
           className="flex border w-96 flex-col py-16 justify-center mx-auto  shadow-md  text-white rounded-xl sm:px-12
         bg-gradient-to-r from-[#328EFF] via-purple-600 to-pink-300 bg-300%  animate-gradient
@@ -32,7 +36,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 

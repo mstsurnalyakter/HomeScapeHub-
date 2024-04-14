@@ -47,21 +47,42 @@ const Register = () => {
   ]);
 
   const onSubmit = (data) => {
-    const {fullName, email, photoURL,  password } = data;
+    const { fullName, email, photoURL, password } = data;
 
     // user create and update profile
+    //   createUser(email, password)
+    //     .then((result) => {
+    //       updateUserProfile(fullName, email, photoURL)
+    //       .then(()=>{
+    //               if (result?.user) {
+    //                 navigate(from);
+    //               }
+    //               console.log("Updated user successfully");
+    //       })
+    //       .catch(error=>{
+    //         console.log(error);
+    //       })
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+
+    //   if (data) {
+    //     toast.success("Successfully Register");
+    //   }
+    // };
+
     createUser(email, password)
       .then((result) => {
-        updateUserProfile(fullName, email, photoURL)
-        .then(()=>{
-                if (result?.user) {
-                  navigate(from);
-                }
-                console.log("Updated user successfully");
-        })
-        .catch(error=>{
-          console.log(error);
-        })
+        updateUserProfile(fullName, photoURL)
+          .then(() => {
+            if (result?.user) {
+              navigate(from);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
