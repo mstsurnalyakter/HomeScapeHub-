@@ -43,7 +43,6 @@ const FirebaseProvider = ({children}) => {
 
     const logout = () => {
       setUser(null);
-      // setLoading(false)
       signOut(auth);
     };
 

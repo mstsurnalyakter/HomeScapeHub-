@@ -7,8 +7,6 @@ const EditForm = () => {
     const {
       register,
       handleSubmit,
-      setValue,
-      watch,
       formState: { errors },
     } = useForm({
       defaultValues: {

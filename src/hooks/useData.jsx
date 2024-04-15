@@ -3,7 +3,6 @@ import { useState } from "react";
 
 const useData = () => {
     const [data, setData] = useState([]);
-    // const [resError, setResError] = useState("");
 
     const [dataLoading, setDataLoading] = useState(true);
 
