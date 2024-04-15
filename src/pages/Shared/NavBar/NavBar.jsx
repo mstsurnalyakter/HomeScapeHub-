@@ -98,7 +98,7 @@ const NavBar = () => {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="w-10 rounded-full border p-1">
+                  <div className="w-14 rounded-full border-2 border-[#0073e1] p-2">
                     <img
                       alt="profile image"
                       className="w-full"
@@ -172,7 +172,7 @@ const NavBar = () => {
                 role="button"
                 className="btn btn-ghost btn-circle avatar"
               >
-                <div className="w-10 rounded-full border p-1">
+                <div className="w-14 rounded-full border-2 border-[#0073e1] p-2">
                   <img
                     alt="profile image"
                     src={
