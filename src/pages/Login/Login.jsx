@@ -98,21 +98,23 @@ const Login = () => {
                   })}
                 />
               </div>
-              <div className="form-control relative">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  type={toggle ? "text" : "password"}
-                  placeholder="password"
-                  className="input input-bordered"
-                  {...register("password", {
-                    required: {
-                      value: true,
-                      message: "You must fill Password input field",
-                    },
-                  })}
-                />
+              <div className=" relative">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <input
+                    type={toggle ? "text" : "password"}
+                    placeholder="password"
+                    className="input input-bordered"
+                    {...register("password", {
+                      required: {
+                        value: true,
+                        message: "You must fill Password input field",
+                      },
+                    })}
+                  />
+                </div>
                 <div
                   className="absolute text-xl top-14 right-2"
                   onClick={() => setToggle(!toggle)}

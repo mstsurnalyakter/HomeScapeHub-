@@ -141,36 +141,38 @@ const Register = () => {
                 />
               </div>
 
-              <div className="form-control relative">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  type={toggle ? "text" : "password"}
-                  placeholder="password"
-                  className="input input-bordered"
-                  {...register("password", {
-                    required: {
-                      value: true,
-                      message: "You must fill Password input field",
-                    },
-                    minLength: {
-                      value: 6,
-                      message: "Password length must be at least 6 character",
-                    },
-                    pattern: {
-                      value: /^(?=.*[A-Z])(?=.*[a-z]).+$/,
-                      message:
-                        "Password must contain at least one uppercase letter and one lowercase letter.",
-                    },
-                  })}
-                />
-                <button
+              <div className="relative">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <input
+                    type={toggle ? "text" : "password"}
+                    placeholder="password"
+                    className="input input-bordered"
+                    {...register("password", {
+                      required: {
+                        value: true,
+                        message: "You must fill Password input field",
+                      },
+                      minLength: {
+                        value: 6,
+                        message: "Password length must be at least 6 character",
+                      },
+                      pattern: {
+                        value: /^(?=.*[A-Z])(?=.*[a-z]).+$/,
+                        message:
+                          "Password must contain at least one uppercase letter and one lowercase letter.",
+                      },
+                    })}
+                  />
+                </div>
+                <div
                   className="absolute text-xl top-14 right-2"
                   onClick={() => setToggle(!toggle)}
                 >
                   {toggle ? <LuEye /> : <LuEyeOff />}
-                </button>
+                </div>
               </div>
 
               <div className="form-control flex items-center flex-row gap-2">
@@ -215,7 +217,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
