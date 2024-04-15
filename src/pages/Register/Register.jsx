@@ -75,7 +75,7 @@ const Register = () => {
       </Helmet>
       <div className="min-h-[700px] relative grid grid-cols-1 lg:grid-cols-2 shadow-2xl bg-base-100  w-4/5 rounded-xl">
         <div className="bg-center min-h-[400px] lg:min-h-[700px]  bg-cover bg-no-repeat rounded-l-xl object-cover bg-[url(https://i.ibb.co/25SzcyT/register.jpg)]">
-          <h2 className="mt-3 md:mt-20 text-center font-bold text-4xl">
+          <h2 className="mt-3 md:mt-20 text-center font-bold  text-lg md:text-4xl ">
             Welcome to <br />
             HomeScapeHub
           </h2>
