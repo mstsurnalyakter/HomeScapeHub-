@@ -79,9 +79,7 @@ const NavBar = () => {
     <div className="shadow-lg sticky top-0 z-50">
       <Navbar className="mx-auto max-w-7xl shadow-none rounded-none px-3 lg:px-2 pt-4 mb-6 lg:py-1">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography
-            className="mr-4 cursor-pointer py-1.5 lg:ml-2 flex items-center"
-          >
+          <Typography className="mr-4 cursor-pointer py-1.5 lg:ml-2 flex items-center">
             <img
               className="w-20"
               src="https://i.ibb.co/rbZyyC8/logo2.png"
@@ -128,25 +126,27 @@ const NavBar = () => {
               </div>
             )}
 
-            {user ? (
-              <button
-                onClick={logout}
-                className="text-[#131313CC] border flex items-center justify-center border-[#0073e1] px-3 py-1 rounded-lg"
-              >
-                Logout
-              </button>
-            ) : (
-              <NavLink
-                to={"/login"}
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-[#0073e1] px-3 py-1 flex items-center justify-center  text-white  rounded-lg"
-                    : "text-[#131313CC] border border-[#0073e1] px-3 py-1 rounded-lg"
-                }
-              >
-                Login
-              </NavLink>
-            )}
+            <div className="">
+              {user ? (
+                <button
+                  onClick={logout}
+                  className="text-[#131313CC] border flex items-center justify-center border-[#0073e1] px-3 py-1 rounded-lg"
+                >
+                  Logout
+                </button>
+              ) : (
+                <NavLink
+                  to={"/login"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-[#0073e1] px-3 py-1 flex items-center justify-center  text-white  rounded-lg"
+                      : "text-[#131313CC] border border-[#0073e1] px-3 py-1 rounded-lg"
+                  }
+                >
+                  Login
+                </NavLink>
+              )}
+            </div>
           </div>
           <IconButton
             variant="text"
@@ -198,25 +198,27 @@ const NavBar = () => {
             </div>
           )}
 
-          {user ? (
-            <button
-              onClick={logout}
-              className="text-[#131313CC] border flex items-center justify-center border-[#0073e1] px-3 py-1 rounded-lg"
-            >
-              Logout
-            </button>
-          ) : (
-            <NavLink
-              to={"/login"}
-              className={({ isActive }) =>
-                isActive
-                  ? "bg-[#0073e1] px-3 py-1 flex items-center justify-center  text-white  rounded-lg"
-                  : "text-[#131313CC] border flex items-center justify-center border-[#0073e1] px-3 py-1 rounded-lg"
-              }
-            >
-              Login
-            </NavLink>
-          )}
+          <div className="">
+            {user ? (
+              <button
+                onClick={logout}
+                className="text-[#131313CC] border mx-auto flex items-center justify-center border-[#0073e1] px-3 py-1 rounded-lg"
+              >
+                Logout
+              </button>
+            ) : (
+              <NavLink
+                to={"/login"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-[#0073e1] px-3 py-1 flex items-center mx-auto justify-center  text-white  rounded-lg"
+                    : "text-[#131313CC] border flex items-center mx-auto justify-center border-[#0073e1] px-3 py-1 rounded-lg"
+                }
+              >
+                Login
+              </NavLink>
+            )}
+          </div>
         </Collapse>
       </Navbar>
     </div>

@@ -68,7 +68,7 @@ const PropertyDetails = () => {
         <Button className="bg-[#0073e1] capitalize">{status}</Button>
         <Button className="bg-[#0073e1] capitalize">{segment_name}</Button>
       </div>
-      <h2 className="text-4xl font-bold">{estate_title}</h2>
+      <h2 className="lg:text-4xl text-lg md:text-2xl font-bold">{estate_title}</h2>
       <div className="flex items-center gap-2">
         <IoLocationSharp className="text-red-500 text-xl" />
         <span>{location}</span>
@@ -79,15 +79,15 @@ const PropertyDetails = () => {
       <div className="flex items-center gap-20   text-[#0073e1] font-bold">
         <div className="flex items-center gap-3">
           <BsArrowsFullscreen className="text-2xl" />
-          <span className="text-3xl">{area}</span>
+          <span className="md:text-3xl text-lg">{area}</span>
         </div>
         <div className="flex items-center gap-3">
           <IoPricetagOutline className="text-2xl" />
-          <span className="text-4xl">{price}</span>
+          <span className="md:text-4xl text-lg">{price}</span>
         </div>
       </div>
       <div className="space-y-3">
-        <h3 className="text-4xl  font-bold">Facilities</h3>
+        <h3 className="md:text-4xl text-xl  font-bold">Facilities</h3>
         <ul className="list-disc pl-7 text-xl space-y-2">
           {facilities?.map((item, index) => (
             <li key={index}>{item}</li>
