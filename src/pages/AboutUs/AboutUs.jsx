@@ -27,7 +27,7 @@ const AboutUs = () => {
         data-aos="fade-right"
         data-aos-easing
         data-aos-duration="2000"
-        className="grid  grid-cols-1 lg:grid-cols-2 gap-6 shadow-xl px-10 py-10 border-2 rounded-xl items-center"
+        className="grid  grid-cols-1 lg:grid-cols-2 gap-6 shadow-xl px-5 md:px-10 py-10 border-2 rounded-xl items-center"
       >
         <div className="space-y-3">
           <h2 className="font-extrabold text-2xl text-[#0073e1] text-center">
@@ -69,8 +69,8 @@ const AboutUs = () => {
         className="bg-[#0073e1] flex flex-col items-center justify-center py-2 space-y-8 rounded-xl shadow-xl"
       >
         <div className="mt-10 text-center text-white space-y-5">
-          <h2 className="text-4xl font-bold">What is HumeSpaceHub?</h2>
-          <p className="w-2/3 mx-auto text-xl">
+          <h2 className="md:text-4xl text-lg font-bold">What is HumeSpaceHub?</h2>
+          <p className="w-2/3 mx-auto md:text-xl">
             HomeSpaceHub is an innovative real estate platform based in Austin,
             dedicated to revolutionizing the way people navigate homeownership.
           </p>
