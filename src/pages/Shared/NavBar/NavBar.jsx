@@ -80,7 +80,6 @@ const NavBar = () => {
       <Navbar className="mx-auto max-w-7xl shadow-none rounded-none px-3 lg:px-2 pt-4 mb-6 lg:py-1">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
-            variant="h4"
             className="mr-4 cursor-pointer py-1.5 lg:ml-2 flex items-center"
           >
             <img
@@ -88,7 +87,7 @@ const NavBar = () => {
               src="https://i.ibb.co/rbZyyC8/logo2.png"
               alt=""
             />
-            <span>HomeScapeHub</span>
+            <span className="text-lg font-bold md:text-2xl">HomeScapeHub</span>
           </Typography>
           <div className="hidden lg:block">
             <NavList />
