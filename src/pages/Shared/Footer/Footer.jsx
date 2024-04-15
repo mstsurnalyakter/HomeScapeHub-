@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3">
           <div className="flex justify-center space-x-3 lg:justify-start">
-            <div className="self-center flex items-center text-2xl font-semibold">
+            <div className="self-center flex items-center text-lg md:text-2xl font-semibold">
               <img
                 className="w-20"
                 src="https://i.ibb.co/rbZyyC8/logo2.png"
