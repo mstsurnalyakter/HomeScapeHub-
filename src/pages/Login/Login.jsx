@@ -43,7 +43,7 @@ const Login = () => {
         }
        })
        .catch((error) => {
-        toast.error(error?.message || "An error occurred while logging in.");
+        toast.error(error?.message?.split("(")[1].replace(")","").split("/")[1] || "An error occurred while logging in.");
        });
 
 

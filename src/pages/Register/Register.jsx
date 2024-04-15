@@ -64,7 +64,10 @@ const Register = () => {
           });
       })
       .catch((error) => {
-         toast.error(error.message || "An error occurred while registering.");
+         toast.error(
+           error.message?.split("(")[1].replace(")", "").split("/")[1] ||
+             "An error occurred while registering."
+         );
       });
   };
 
