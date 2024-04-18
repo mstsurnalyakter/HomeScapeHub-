@@ -52,8 +52,8 @@ export const SideBarCard = () => {
             className=""
             textGradient
           >
-            
-            Whether it is working with a first-time homebuyer, a home listing...
+
+            Whether it is working with a first-time home buyer, a home listing...
           </Typography>
           <div className="divider"></div>
         </CardBody>
@@ -134,7 +134,7 @@ export const SideBarCard = () => {
             className=""
             textGradient
           >
-            Whether it is working with a first-time homebuyer, a home listing...
+            Whether it is working with a first-time home buyer, a home listing...
           </Typography>
           <div className="divider"></div>
         </CardBody>
