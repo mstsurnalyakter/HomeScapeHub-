@@ -52,8 +52,7 @@ export const SideBarCard = () => {
             className=""
             textGradient
           >
-            Whether it is working with a first time homebuyer, a luxury home
-            listing or a seasoned inv ...
+            Whether it is working with a first-time homebuyer, a home listing...
           </Typography>
           <div className="divider"></div>
         </CardBody>
@@ -134,8 +133,7 @@ export const SideBarCard = () => {
             className=""
             textGradient
           >
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suff ...
+            Whether it is working with a first-time homebuyer, a home listing...
           </Typography>
           <div className="divider"></div>
         </CardBody>
