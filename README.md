@@ -13,6 +13,7 @@
 - [Features](#features)
 - [Routes](#routes)
 - [npm Packages Used](#npm-packages-used)
+- [Getting Started](#getting-started)
 
 ---
 
@@ -42,3 +43,49 @@
 - **AOS Package**: Smooth animations and scroll-based effects.
 - **React Hook Form**: Efficient form handling for user input and validation.
 - **Swiper Slider**: Dynamic and responsive sliders for showcasing properties and testimonials.
+
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js
+- MongoDB
+- npm or yarn
+
+### Installation
+
+1. Clone repository:
+
+    ```sh
+    git clone https://github.com/mstsurnalyakter/HomeScapeHub-
+    cd HomeScapeHub-
+    ```
+
+2. Install client dependencies:
+
+    ```sh
+    npm install
+    ```
+
+
+### Configuration
+
+Create a .env file in the client directory with the following environment variables:
+
+```env
+VITE_APIKEY=
+VITE_AUTHDOMAIN=
+VITE_PROJECTID=
+VITE_STORAGEBUCKET=
+VITE_MESSAGINGSENDERID=
+VITE_APPID=
+```
+
+### Run the client:
+
+```sh
+    npm run dev
+```
